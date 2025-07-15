@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Chaesong Park</title>
+
+    <meta name="author" content="Chaesong Park">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Chaesong Park
+                </p>
+                <p>
+		I'm a Ph.D candidate at <a href="https://rvlab.snu.ac.kr/">Robot Vision lab. </a> in Seoul National University.
+		
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:chase121@snu.ac.kr">Email</a> &nbsp;/&nbsp;
+                  <a href="data/JonBarron-CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp;
+                  <a href="https://bsky.app/profile/jonbarron.bsky.social">Bluesky</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/jonbarron/">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:37%;max-width:37%">
+                <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/JonBarron.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Research</h2>
+                <p>
+                  I'm interested in computer vision, deep learning, generative AI, and image processing. Most of my research is about inferring the physical world (shape, motion, color, light, etc) from images, usually with radiance fields. Some papers are <span class="highlight">highlighted</span>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+    <tr onmouseout="sclane_stop()" onmouseover="sclane_start()"  bgcolor="#ffffd0">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='bolt3d_image'><video  width=100% height=100% muted autoplay loop>
+          <source src="images/bolt3d.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+
+          </video></div>
+          <img src='images/bolt3d.jpg' width="160">
+        </div>
+        <script type="text/javascript">
+          function bolt3d_start() {
+            document.getElementById('bolt3d_image').style.opacity = "1";
+          }
+
+          function bolt3d_stop() {
+            document.getElementById('bolt3d_image').style.opacity = "0";
+          }
+          bolt3d_stop()
+        </script>
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        <a href="https://szymanowiczs.github.io/bolt3d">
+          <span class="papertitle">Bolt3D: Generating 3D Scenes in Seconds</span>
+        </a>
+        <br>
+        <strong>Chaesong Park</strong>,
+        Eunbin Seo,
+        Jihyeon Hwang,
+        <a href="https://rvlab.snu.ac.kr/people/jwlim">Jongwoo Lim</a>,
+        <br>
+        <em>ICCV</em>, 2025
+        <br>
+        <a href="https://parkchaesong.github.io/sclane">project page</a>
+        /
+        <a href="https://parkchaesong.github.io/sclane">arXiv</a>
+        <p></p>
+        <p>
+		By training a latent diffusion model to directly output 3D Gaussians we enable fast (~6 seconds on a single GPU) feed-forward 3D scene generation.
+        </p>
+      </td>
+    </tr>
+
+
+
+    <tr onmouseout="heightlane_stop()" onmouseover="heightlane_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='simvs_image'><video  width=100% muted autoplay loop>
+          <source src="images/simvs.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/simvs.jpg' width=100%>
+        </div>
+        <script type="text/javascript">
+          function simvs_start() {
+            document.getElementById('simvs_image').style.opacity = "1";
+          }
+
+          function simvs_stop() {
+            document.getElementById('simvs_image').style.opacity = "0";
+          }
+          simvs_stop()
+        </script>
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        <a href="https://alextrevithick.github.io/simvs/">
+          <span class="papertitle">HeightLane: BEV Heightmap guided 3D Lane Detection</span>
+        </a>
+        <br>
+        <strong>Chaesong Park</strong>,
+        Eunbin Seo,
+        <a href="https://rvlab.snu.ac.kr/people/jwlim">Jongwoo Lim</a>,
+        <br>
+        <em>WACV</em>, 2025
+        <br>
+        <a href="https://parkchaesong.github.io/heightlane/">project page</a>
+        /
+        <a href="https://arxiv.org/abs/2408.08270">arXiv</a>
+        <p></p>
+        <p>
+        Simulating the world with video models lets you make inconsistent captures consistent.
+        </p>
+      </td>
+    </tr>
+
+
+          </tbody></table>
+
+          
+					<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+            <tr>
+              <td>
+                <h2>Miscellanea</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
