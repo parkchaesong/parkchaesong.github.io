@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>HeightLane</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://parkchaesong.github.io/heightlane/img/heightlane-picture-2.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="600">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://parkchaesong.github.io/heightlane/"/>
+    <meta property="og:title" content="HeightLane" />
+    <meta property="og:description" content="Project page for HeightLane: BEV Heightmap guided 3D Lane Detection." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HeightLane" />
+    <meta name="twitter:description" content="Project page for HeightLane: BEV Heightmap guided 3D Lane Detection." />
+    <meta name="twitter:image" content="https://parkchaesong.github.io/heightlane/img/heightlane-picture-2.png" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <b>HeightLane</b>: BEV Heightmap guided <br>3D Lane Detection</br> 
+                <small>
+                    WACV 2025 (Oral Presentation)
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://parkchaesong.github.io/">
+                          Chaesong Park
+                        </a>
+                        </br>Seoul National University
+                    </li>
+                    <li>
+                        <a href="#">
+                            Eunbin Seo
+                        </a>
+                        </br>Seoul National University
+                    </li>
+                    <li>
+                        <a href="https://rvlab.snu.ac.kr/people/jwlim">
+                          Jongwoo Lim
+                        </a>
+                        </br>Seoul National University
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2408.08270">
+                            <image src="img/heightlane_paper_img.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/parkchaesong/HeightLane">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="img/heightlane-picture-2.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+Accurate 3D lane detection from monocular images presents significant challenges due to depth ambiguity and imperfect ground modeling. Previous attempts to model the ground have often used a planar ground assumption with limited degrees of freedom, making them unsuitable for complex road environments with varying slopes. Our study introduces HeightLane, an innovative method that predicts a height map from monocular images by creating anchors based on a multi-slope assumption. This approach provides a detailed and accurate representation of the ground.
+
+HeightLane employs the predicted heightmap along with a deformable attention-based spatial feature transform framework to efficiently convert 2D image features into 3D bird's eye view (BEV) features, enhancing spatial understanding and lane structure recognition. Additionally, the heightmap is used for the positional encoding of BEV features, further improving their spatial accuracy. This explicit view transformation bridges the gap between frontview perceptions and spatially accurate BEV representations, significantly improving detection performance.
+
+To address the lack of the necessary ground truth height map in the original OpenLane dataset, we leverage the Waymo dataset and accumulate its LiDAR data to generate a height map for the drivable area of each scene. The GT heightmaps are used to train the heightmap extraction module from monocular images. Extensive experiments on the OpenLane validation set show that HeightLane achieves state-of-the-art performance in terms of F-score, highlighting its potential in real-world applications.
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    HeightLane Framework
+                </h3>
+                <p class="text-justify">
+                    HeightLane creates a predefined BEV grid for the ground and generates multiple heightmap anchors on this grid, assuming various slopes. These anchors are projected back onto the image to sample front-view features from the corresponding regions, enabling the model to efficiently predict a heightmap. To better align each BEV grid pixel with the 2D front-view features, height information from the predicted heightmap is added to the positional encoding of the BEV grid queries.
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/heightlane-picture-3.png" class="img-responsive" alt="HeightLane Framework">
+                </p>
+                <p class="text-justify">
+                    Using the predicted heightmap along with deformable attention mechanisms, HeightLane explicitly performs spatial transformations of image features onto the BEV grid. This method significantly reduces the misalignment between the image and BEV features, ensuring more accurate representation and processing.
+                </p>
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p class="text-justify">
+                    HeightLane achieves state-of-the-art performance on the OpenLane validation set, surpassing previous methods in terms of F-score. The explicit heightmap modeling enables more accurate 3D lane detection in complex road environments with varying slopes and elevations.
+                </p>                
+                <br>
+                <p style="text-align:center;">
+                    <image src="img/heightlane-table-2.png" class="img-responsive" alt="Results Table">
+                </p>
+                <br>
+                <p class="text-justify">
+                    The heightmap-guided approach provides accurate ground modeling, enabling robust 3D lane detection across diverse road conditions and terrain variations.
+                </p>
+            </div>
+        </div>
+
+
+
+        
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@inproceedings{park2025heightlane,
+    title={HeightLane: BEV Heightmap guided 3D Lane Detection},
+    author={Chaesong Park and Eunbin Seo and Jongwoo Lim},
+    booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    year={2025}
+}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                We thank the OpenLane and Waymo dataset teams for providing the benchmarks and data used in this research. This work was supported by ME & IPAI at Seoul National University.
+                    <br>
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

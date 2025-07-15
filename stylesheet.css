@@ -1,0 +1,122 @@
+body {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.name {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.papertitle {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+.one {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.two {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.one img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.one video {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.hoverZoomLink:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  .one {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .two {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .one img,
+  .one video {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Paper entry styling */
+tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+}
+
+/* Profile image styling */
+img[alt="profile photo"] {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+img[alt="profile photo"]:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+} 
